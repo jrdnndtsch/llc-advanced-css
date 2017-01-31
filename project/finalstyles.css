@@ -1,0 +1,332 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */
+input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+img {
+  max-width:100%;
+  height: auto;
+
+}
+
+svg {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+body {
+	word-wrap: break-word;
+}
+
+
+/* YOUR STYLES START HERE*/
+
+body {
+	font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+	line-height: 26px;
+	color: #808080;
+	font-size:22px;
+}
+
+
+h2, h3, h4 {
+	font-weight: 300;
+	color: #333333;
+	text-align: center;
+}
+
+h2 {
+	font-size: 40px;
+	line-height: 50px;
+}
+
+h3 {
+	font-size: 32px;
+	line-height: 36px;
+}
+
+h4 {
+	font-size: 25px;
+	line-height: 30px;
+}
+
+a {
+	text-decoration: none;
+	color: #b109aa;
+}
+
+a:hover{
+	color: #4d4d4d;
+}
+
+p {
+	font-size: 22px;
+}
+
+.purple{
+	background: #b109aa;
+	color: white;
+}
+
+.purple h2, .purple p, .purple h3 {
+	color: white;
+}
+
+section {
+	padding: 2% 0px;
+}
+nav {
+	padding: 10px 50px;
+	font-size: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 3;
+	background: white;
+	display: flex;
+	justify-content: center;
+}
+
+nav h1 {
+	font-family: 'Quicksand', Helvetica, Arial, sans-serif;
+	font-size: 50px;
+	line-height: 60px;
+	font-weight: 300;
+	width: 50%;
+	margin: 0;
+	color: black;
+}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	text-align: right;
+	width: 50%;
+}
+
+nav ul li a{
+	display: inline-block;
+	font-size: 24px;
+	padding: 10px;
+}
+
+/* HEADER SECTION */
+
+header {
+	padding: 100px 0;
+	text-align: center;
+	background:  url(images/glccamp.jpg);
+	background-size: cover;
+	background-position: 50%;
+	background-attachment: fixed;
+	height: 600px;
+	width: 100%;
+	color: white;
+}
+
+header h2 {
+	color: white;
+}
+
+p.tagline {
+	font-size: 20px;
+}
+
+main {
+	top: 100%;
+	width: 100%;
+}
+
+.purple-box, .white-box {
+	display: block;
+	padding: 2px;
+	margin: 0 auto;
+	margin-top: 60px;
+	padding: 40px;
+	width:50%;
+}
+
+.purple-box{
+	background: rgba(177, 9, 170, 0.6);
+}
+
+
+a.button {
+	color: white;
+	border: 1px solid white;
+	padding: 10px 20px;
+	border-radius: 3px;
+	margin-top: 20px;
+	display: inline-block;
+}
+
+.product .button {
+	border: 1px solid black;
+	color: black;
+}
+
+a.button:hover {
+	background: white;
+	color: black;
+}
+
+.press {
+	padding: 20px;
+	text-align: center;
+}
+.press ul {
+	padding: 0;
+	list-style-type: none;
+	display: flex;
+	justify-content: center;
+}
+.press li {
+	padding: 0 20px;
+	width: 20%;
+}
+
+.press li img {
+	-webkit-filter: grayscale(100%);
+	opacity: 0.7;
+}
+
+/*PRODUCT SECTION BEGINS*/
+
+section.product {
+	padding: 0;
+	background: white;
+	display: flex;
+}
+
+.right, .left {
+	width: 50%;
+}
+
+.right {
+	text-align: center;
+	font-size: 18px;
+}
+
+p.price {
+	font-size: 100px;
+	color: #b109aa;
+}
+
+.left img {
+	margin: 0;
+	width: 100%;
+}
+
+/*IMPACT SECTION BEGINS*/
+
+.impact ul {
+	padding: 0;
+	text-align: center;
+	display: flex;
+	list-style-type: none;
+	justify-content: center;
+}
+
+.impact li {
+	width: 33%;
+	padding: 0 20px;
+}
+
+.impact li h3 {
+	font-size: 20px;
+	font-family: "Quicksand", sans-serif;
+	font-weight: 300;
+	margin-top: 20px;
+	padding: 30px;
+}
+
+.impact svg {
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+	fill: rgba(255,255,255,0.9);
+	vertical-align: bottom;
+}
+
+svg.keyboard path:hover {
+	fill: purple;
+}
+
+svg.joy:hover {
+	-webkit-animation-name:bounce;
+	animation-name: bounce;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+svg.button:hover {
+	-webkit-animation-name:tada;
+	animation-name: tada ;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+
+/* JOIN THE CONVERSATION*/
+
+.share {
+	text-align: center;
+}
+iframe {
+	display: inline-block;
+	margin: 20px;
+}
+
+
+/*LAST CALL TO ACTION*/
+
+.last-bid {
+	background: linear-gradient(rgba(177, 9, 170, 0.8),rgba(177, 9, 170, 0.8)), url(images/goofy-girls.jpg);
+	background-position: 50%;
+	background-attachment: fixed;
+	background-size: cover;
+	text-align: center;
+	padding: 20%;
+	position: relative;
+	color: black;
+}
+
+/*FOOTER STYLES START HERE*/
+
+footer {
+	background: #333;
+	color: white;
+	padding: 20px;
+	text-align: center;
+}
+
+p.copyright {
+	font-size: 16px;
+	color: #b109aa;
+}
+
+footer ul {
+	padding: 0;
+}
+footer li {
+	display: inline;
+	padding: 10px;
+}
+
+footer a {
+	transition: all 0.5s;
+	color: #b109aa;
+	font-size: 28px;
+}
+
+footer a:hover {
+	color: white;
+}
+
+footer i {
+	font-size: 32px;
+}

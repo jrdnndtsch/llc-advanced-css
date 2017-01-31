@@ -1,0 +1,1478 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Ladies Learning Code: CSS Fundamentals</title>
+
+    <!-- Don't alter slideshow.css, CSSS slide deck needs it to work -->
+    <link rel="stylesheet" href="framework/css/slideshow.css">
+
+    <!-- Theme-specific styles -->
+    <link href='http://fonts.googleapis.com/css?family=Quicksand|Pacifico|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="framework/css/font-awesome.css">
+    <link rel="stylesheet" href="framework/css/highlightjs-themes/monokai.css">
+    <link rel="stylesheet" href="framework/css/theme-llc.css">
+    <link rel="shortcut icon" href="framework/img/favicon.ico">
+
+    <!-- Workshop-specific styles -->
+    <link rel="stylesheet" href="framework/css/workshop.css">
+
+    <!-- Takes care of CSS3 prefixes! -->
+    <script src="framework/scripts/prefixfree.min.js"></script>
+
+    <!-- Class Gauge tool -->
+    <script async data-id="ClassGauge" data-token="-KF0_S2LxXu0W9zd2QU8" src="https://class-gauge.firebaseapp.com/assets/voting_client.js"></script>
+</head>
+
+<!-- Timer/progress bar: Define the presentation duration using "data-duration" in minutes. -->
+<body data-duration="360">
+
+    <!-- makes all links open in a new window -->
+    <base target="_blank">
+
+    <!-- First/Intro slide -->
+    <header class="intro slide">
+        <img class="logo" src="framework/img/logo-llc-white.png">
+        <div class="info">
+            <h1>
+                <span class="title-bg">Pure CSS</span><br>
+				<span class="location">teen:clubs</span>
+            </h1>
+            <!-- <h2><span>with</span> Ksenia</h2> -->
+
+           <!-- <div class="instructor">
+                <img class="instructor-img" src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAaGAAAAJDlmN2M5ODQwLWI2NzQtNGIxNy1hNGVjLTEyYmRmNDBhNjBmZA.jpg?size=200" alt="Ksenia Nadkina">
+               <ul>
+                   <li><i class="fa fa-envelope"></i><a href="mailto:ksenia@ladieslearningcode.com">ksenia@ladieslearningcode.com</li>
+                   <li><i class="fa fa-desktop"></i><a href="http://playwithcode.org">playwithcode.org</a></li>
+                   <li><i class="fa fa-twitter"></i><a href="http://twitter.com/ksenia_nadkina">@ksenia_nadkina</a></li>
+               </ul>
+           </div> -->
+
+        </div>
+        <div class="presenter-notes">
+            <p>It's important to note at the beginning that a lot of material will be covered and their page will not be 100% complete by the end of the day. The goal of the day is to learn about the concepts but they will have most of the page done by the end of the day. "Homework" and additional resources are provided at the end to help them complete their project.</p>
+            <p>All code blocks in white are editable and CSS changes will be reflected in the slide.  For exercises, all instructions listed under <strong>bonus</strong> are for those who complete the exercises early to make sure learners at all different levels have something to work on.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="slide centered" data-markdown>
+            ##Today's Project
+
+            Follow [this link](../project/final.html) to see the whole project!
+
+            ![final project](framework/img/workshop/final-project.jpg)
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Setting Up Our Dev Tools
+
+            **[Atom](https://atom.io/)** - a text editor with colour highlighting and other helpful features. If you are unable to install Atom, try installing: [Notepad++](http://notepad-plus-plus.org/) (Windows) or [Sublime Text](http://www.sublimetext.com) (Mac) Do we all have it installed?
+
+            **[Google Chrome](https://www.google.com/intl/en-CA/chrome/browser/)** - We will be using Chrome as our browser for today. It's important we all set it up as our default browser.
+
+            **Developer tools** allow us to *inspect* any web page to see how it's built. These tools also make it easier to test and debug code. The tools can be accessed in 3 ways:
+
+            * right-click / two-finger tap on a web page and select **Inspect Element**
+            * select the menu icon in the top right hand corner of the Chrome browser and select **Tools > Developer Tools**
+            * keyboard shortcut: **Ctrl + Shift + I** (PC) / **Cmnd + Option + I** (Mac)
+        </section>
+        <section class="slide" data-markdown>
+            ##Setting Up Our Work Flow
+
+            Inside of the folder you downloaded today, **advanced-css-for-girls**, there are many more folders and files that contain different content.
+
+            ```
+            advanced-css-for-girls
+                |-- project // Contains files for today's workshop.
+                    |-- animate.css
+                    |-- finalstyles.css //the final css fro today's project
+                    |-- images // Images and .svg files for your project. You can also add your images here.
+                    |-- final.html // Finished example for reference. The CSS file is in this folder.
+                    |-- index.html // Your HTML page.
+                    |-- style.css //the original style of the page, where we will be working
+                |-- slides // This is the file you're viewing right now (slides)!
+            ```
+        </section>
+        <section class="slide" data-markdown>
+            ##Setting Up Our Work Flow
+
+            Open our project files in the browser and text editor.
+
+            1. Open Atom and go to **File > Open**.
+
+                ![](framework/img/workshop/1-setup.png)
+            1. Navigate to the **Project** folder (in the folder you downloaded with today's slides). With the entire folder selected, select **Open**.
+                <!-- ![](framework/img/workshop/2-setup.png) -->
+            1. The folder will appear in Atom's side bar. Double click on **index.html** in the sidebar to open it.
+                <!-- ![](framework/img/workshop/3-setup.png) -->
+            1. Right click or two finger tap and select **Open in Browser**. This will open the HTML file in your *default* browser.
+
+                ![](framework/img/workshop/4-setup.png)
+
+            No CSS has been applied yet so all you will see is the HTML content and the default styles.
+        </section>
+
+        <section class="slide title" data-markdown>
+            #hypertext markup language
+            ##The content layer
+        </section>
+
+        <section class="slide" data-markdown>
+            ##HTML: Quick Review
+
+            HTML is used to define *content* and HTML tags are used to describe the meaning of your content.
+
+            **Title**: Found in the `&lt;head>` section of the HTML document. Used for defining the page title. Displays in the browser's tab, search engine results and bookmarks.
+
+            ```xml
+            &lt;title&gt;Page Title&lt;/title&gt;
+            ```
+
+            **Headings**: There are 6 heading tags available (`&lt;h1&gt;,&lt;h2&gt;,...,&lt;h6&gt;`) and follow a hierarchical structure. `&lt;h1&gt;` represents the most important title/heading on the page and it's best to stick to using it just once per page. Other headings can be used multiple times.  It's important to use the appropriate tag to describe the content, not for the default heading styles. That's what CSS is for!
+
+            ```xml
+            &lt;h1&gt;Most Important Heading&lt;/h1&gt;
+            &lt;h2&gt;Important But Not As Much As h1&lt;/h2&gt;
+            ```
+
+            **Paragraphs**: Created with the `&lt;p&gt;&lt;/p&gt;` tags.
+            ```xml
+            &lt;p&gt;I'm a paragraph.&lt;/p&gt;
+            ```
+
+            **Link**: requires the addition of an `href` *attribute* to specify where to link to.
+
+            ```
+            &lt;a href=&quot;http://website.com&quot;&gt;link&lt;/a&gt;
+            ```
+
+            **Lists**: There are three kinds of lists: ordered (`ol`) for numbered lists, undordered (`ul`) for lists with bullets & definition lists (`dl`) (we won't worry about these). Content must be included only within the list item (`li`).
+
+            ```xml
+            &lt;ul&gt;
+                &lt;li&gt;Unordered list item&lt;/li&gt;
+                &lt;li&gt;Unordered list item&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Ordered list item&lt;/li&gt;
+                &lt;li&gt;Ordered list item&lt;/li&gt;
+            &lt;/ol&gt;
+            ```
+            **Images**: like links, also requires the an additional attribute, `src`, for linking to the image file.
+
+            ```
+            &lt;img src=&quot;path/to/image.jpg&quot;&gt;
+            ```
+
+        </section>
+        <section class="slide">
+            <h2>HTML5 Semantic Elements</h2>
+            We know `divs` which are no more and no less than boxes wrapping our content.
+
+            In HTML5 we also have available a number of div-like elements that are just like divs but more semantic. Semantic means that they describe the content better than divs do. Today we will be using the following HTML5 elements:
+
+            <pre><code>
+                <nav></nav> <!--For menus-->
+                <header></header> <!-- for our hero banner-->
+                <main></main> <!-- to wrap the main content including sections,
+                figures, figcaptions and footer-->
+                <section></section>
+                <!-- for images: -->
+                <figure></figure>
+                <figcaption></figcaption>
+                <footer></footer> <!-- for our footer -->
+
+            </code></pre>
+            As you can see, these elements are a lot more descriptive than just using `divs` for everything.
+        </section>
+        <section class="slide">
+            <h2>Exercise #1: Personalize the content (5-10 mins)</h2>
+            <h4>Open index.html file in your text editor</h4>
+
+            <ol>
+                <li>Update the page title in the <code>title</code> tag.</li>
+                <li>Update the call to action and a description of your product</li>
+                <li>Change the headings of the Difference section? How will your product create an impact?</li>
+            </ol>
+
+            <p><strong>Bonus:</strong> If you have some extra time, try updating the content for the rest of the page.</p>
+
+            <p>Don’t forget to save your changes (<strong>File &gt; Save</strong>) and refresh the browser after each update! Don’t worry if you don’t finish.</p>
+
+            <p><strong>Protip!</strong> Improve your work flow with keyboard shortcuts:  </p>
+
+            <p><strong>CMD/CTRL + S</strong> to save <br>
+            <strong>CMD/CTRL + R</strong> to refresh the browser</p>
+
+            <div class="presenter-notes">
+                Give the class 5 mins and then check if they completed #1-3. If not give them 5 more minutes.
+            </div>
+        </section>
+
+        <section class="slide title" data-markdown>
+            #Cascading Style Sheets
+            ##The presentation layer
+        </section>
+
+        <section class="slide" data-markdown>
+            ##CSS Overview
+
+            HTML defines *content*, CSS defines the *presentation*.
+
+            **Selectors:** used to determine which element(s) to apply the styles to. Can target an HTML tag, class or ID attribute (more on these later).
+            **Declaration block:** consists of a list of declarations (rules to follow) wrapped in curly braces `{}`.
+            **Declarations** or rules to follow, are written using `property:value` pairs.
+
+            ```css
+            selector {
+                property: value;
+            }
+            ```
+            **Properties** determine the type of style to be applied to
+            the element (e.g. color).
+            **Values** are specific to the property. Declarations must end with a semi-colon (`;`) to indicate that the instruction is complete.
+
+            ![](framework/img/workshop/css.png)
+        </section>
+        <section class="slide" data-markdown>
+            ##Comments
+
+            Comments in CSS are written between a slash & asterisk  and must close in the opposite order. Comments are great for ... well... leaving comments!  Leave notes for yourself (or others), organize your code blocks or for "commenting" out your code (hiding it for later).
+
+            ```
+            p {
+                color: #cc0066; /* magenta */
+            }
+
+            /* HEADER STYLES */
+            header {
+                width: 80%;
+            }
+
+            /*  Saving this for later
+            .slider {
+                width: 100px;
+                background: red;
+            }
+            */
+            ```
+        </section>
+
+        <section class="slide">
+            <h2>Classes</h2>
+            <p class>I'm a paragraph</p>
+            <p class="danger">I'm a paragraph with the class of danger</p>
+            <textarea class="snippet " data-raw>
+        /* targets ALL parapraphs */
+        p {
+
+        }
+        /* only applies any element that contains this class, defined by leading period */
+        .danger {
+
+        }
+                </textarea>
+
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Cascading
+
+            CSS executes from top to bottom (hence "cascading"), so be careful of the the order of your CSS declarations. The declaration that comes *after* will override the one that came before.
+
+            In this example, what colour will the `&lt;h1&gt;` be?
+
+            ```
+            h1 {
+                color: black;
+            }
+            h1 {
+                color: blue;
+            }
+            ```
+        </section>
+        <section class="slide" data-markdown>
+            ##Inheritance and Specificity
+
+            One of the strengths of CSS is styles can be inherited from parent to child elements using the family tree relationship between the elements.
+
+            ```
+            &lt;body&gt;
+                &lt;h1&gt;My Website&lt;/h1&gt;&lt;!-- child of body --&gt;
+                &lt;p&gt;This is a paragraph.&lt;/p&gt;&lt;!-- sibling of h1 --&gt;
+            &lt;/body&gt;
+            ```
+            ```
+            body {
+                color: blue;
+                font-family: Helvetica, Arial, sans-serif;
+            }
+            h1 {
+                color: black;
+            }
+            ```
+
+            In the above example, the CSS properties in the body selector is inherited by the children and descendants so all the text would be blue and display the Helvetica font. However, when a more specific selector is used (`h1`), it overrides the inherited values because it's more *specific*.
+        </section>
+         <section class="slide" data-markdown>
+            ##Descendant selectors
+
+            **Descendant selectors** - Matches any element that is a *descendant* of the element declared before it.
+
+            ```css
+            p a {
+                /* targets only a tags nested inside of p tags */
+            }
+            .classname a {
+                /* targets only a tags nested inside any element with the matching classname */
+            }
+            ```
+            **Protip:** Try not to go more than three levels deep or it gets really confusing!
+
+            ```
+            nav ul li a span {
+                /* NOOOOOOOOOOO */
+            }
+            ```
+
+            Feel free to skip a level but be mindful of specificity rules. For example, `nav ul li a` would override `nav a`. It’s generally easier to start with less specific selectors and make them more specific, as needed, rather than starting with very specific selectors and adding extra markup or classes to try to override the styles.
+        </section>
+
+        <section class="slide title" data-markdown>
+            #Typography
+        </section>
+
+        <section class="slide">
+            <h2>Font Styles & Typography Review</h2>
+            <p>Let's experiment with a few CSS properties for styling text. Try changing some of the values below.</p>
+            <textarea class="snippet" data-subject="#typography-example">line-height: 1.25;
+font-family: Helvetica, Arial, serif;
+font-size: inherit;
+font-weight: normal;
+text-transform: inherit;
+color: #222222;</textarea>
+            <div id="typography-example" class="example">
+                <p>Just some text to test out the above styles. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni repellat sunt quae fugit illum in aut sed, quis nesciunt totam veritatis, dolores alias modi fuga commodi dicta facilis, consequatur temporibus.</p>
+            </div>
+
+            <p>Resource: <a href="http://reference.sitepoint.com/css/typography">Sitepoint Typographical Properties</a></p>
+
+            <div class="presenter-notes">
+                <p>Explain what each property does while updating each example in the code editor.</p>
+            </div>
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Web fonts
+
+            As you know, CSS comes built in with a number of fonts.(See them here: <a href="http://cssfontstack.com/">cssfontstack.com</a>.
+
+            **Google Fonts** are an alternative to the built-in fonts and they're easy and free to use. For our example, we'll be using QuickSand and Montserrat. Let's go get them together:
+
+            1. Select the fonts you want to use by clicking on the red plus sign next to each font..
+            1. Open up the black drawer at the bottom of the page.
+            1. Select font weights in the Customize tab. The more you choose, the more it will slow down page load time. Beware!
+            1. The default character set should contain what you need. Only select an option if you need to add additional language support.
+            1. Grab the `&lt;link&gt;` code snippet in the Embed tab and add it the `&lt;head&gt;` part of your page, just below the title.
+            1. Use the new fonts with the `font-family` property as listed in the example on the Google Fonts page.
+
+            We've already included the code in your html file so let's go ahead and uncomment that. That's it! Now we can use our two Google fonts.
+        </section>
+
+        <section class="slide">
+            <h2>Class Exercise: General font styles</h2>
+            <p>As a good rule of thumb it's good to always start styling your website with the typography. Let's go through our final page and figure out which elements we need to style with font properties:</p>
+
+            <p>1. Set the main font-family &amp; line-height using <code>body</code> as the selector.</p>
+
+            <pre><code>body {
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    line-height: 26px;
+    color: #808080;
+    font-size: 22px;
+}</code></pre>
+            <p>2. Set font styles for h1, h2 and h3</p>
+
+            <pre><code>h1 {
+    font-family: 'Quicksand', Helvetica, Arial, sans-serif;
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 300;
+    color: black;
+}
+h2 {
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    color: #333333;
+    text-align: center;
+    font-size: 40px;
+    line-height: 50px;
+}
+h3 {
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    color: #333333;
+    text-align: center;
+    font-size: 32px;
+    line-height: 36px;
+}
+h4 {
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 300;
+    color: #333333;
+    text-align: center;
+}
+
+p {
+    font-size: 22px;
+}
+
+a {
+    text-decoration: none;
+    color: #b109aa;
+}
+</code></pre>
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Refactor!
+
+            What is refactoring? Code refactoring is the process of restructuring existing code to make it more efficient. Writing clean, organized and efficient code will not only make your pages run faster but will make it easier to maintain and can potentially reduce browser bugs. It's tempting to say "I'll fix it later" but later doesn't always come. It's important to refactor your code as you go along.
+
+            If you find you are declaring the same styles over and over again, try applying the style to a parent selector so the styles can be inherited. You can also *combine* selectors to apply the same styles to multiple selectors at the same time.  Make sure to separate selectors with a comma.
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Class Exercise: Typography (continued)
+
+            The previous example can be refactored to look like this:
+
+            ```
+            body {
+                font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+                line-height: 26px;
+                color: #808080;
+                font-size: 22px;
+            }
+
+            h1 {
+                font-family: 'Quicksand', Helvetica, Arial, sans-serif;
+                font-size: 50px;
+                line-height: 60px;
+                font-weight: 300;
+                color: black;
+            }
+
+            h2, h3, h4 {
+                font-weight: 300;
+                color: #333333;
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 40px;
+                line-height: 50px;
+            }
+
+            h3 {
+                font-size: 32px;
+                line-height: 36px;
+            }
+            h4 {
+                font-size: 25px;
+                line-height: 30px;
+            }
+            a {
+                text-decoration: none;
+                color: #b109aa;
+            }
+            ```
+        </section>
+
+        <section class="slide">
+                <h2>Exercise #2: Typography (15mins)</h2>
+
+                <ol>
+                    <li>Find and add 2-3 font families from <a href="http://www.google.com/fonts/">Google Fonts</a></li>
+                    <li>Update the font &amp; typography styles to your liking! You can add some more later as the page starts to come together.</li>
+                </ol>
+
+                <p>Resource: <a href="http://reference.sitepoint.com/css/typography">Sitepoint Typographical Properties</a></p>
+
+
+        </section>
+
+        <section class="slide title" data-markdown>
+            #The Box Model Review
+        </section>
+
+        <section class="slide">
+                <h2>Widths and Heights</h2>
+                <div class="box"></div>
+                <textarea class="snippet delayed" data-raw>
+        .box {
+            width:50px;
+            height:50px;
+            background:yellow;
+        }
+                </textarea>
+        </section>
+
+        <section class="slide">
+                <h2>Padding and Margin</h2>
+                <p>Provide space between elements on your page so everything isn't squished together.</p>
+                <p>Margin adds space on the OUTSIDE of an element.</p>
+                <p>Padding adds space on the INSIDE of an element.</p>
+        </section>
+
+        <section class="slide">
+                <div class="box">X</div>
+                <textarea class="snippet delayed" data-raw>
+        .box {
+            width:100px;
+            height:100px;
+            background:yellow;
+            padding:0px 0px 0px 0px;
+            margin:0px 0px 0px 0px;
+        }
+                </textarea>
+            <p class="presenter-notes">Remember to mention paddingTRBL and maringTRBL</p>
+        </section>
+
+        <section class="slide">
+            <h2>Center aligning with margin</h2>
+            <p>The margin property can also be used to center align block level elements. First, a width needs to be set. Then, setting the left &amp; right values to <code>auto</code> will find the center of the page. The <code>0</code> just refers to the top and bottom value.</p>
+
+            <textarea class="snippet" data-subject="#margin-auto">background-color: lightblue;
+height: 100px;
+width: 600px;
+margin: 0 auto;</textarea>
+            <div id="margin-auto">box</div>
+        </section>
+
+        <section class="slide">
+            <h2>Class excercise</h2>
+            <ol>
+                <li>Uncomment our border-box snippet in the css file (line 5).</li>
+                <li>Go back to our CSS file and let's add padding to each of the sections to match the final. </li>
+                <li>What could we use margin: 0 auto for on the page? </li>
+            </ol>
+         <pre><code>
+        section{
+            padding: 2% 0px;
+        }
+        nav{
+            padding: 10px 50px;
+        }
+        nav ul{
+            padding: 0;
+        }
+        nav ul li{
+            padding: 10px;
+        }
+        header{
+            padding: 100px 0;
+        }
+        .press{
+            padding: 20px;
+        }
+        .press ul {
+            padding: 0;
+            text-align: center;
+        }
+        </code></pre>
+
+        </section>
+
+        <section class="slide title" data-markdown>
+             #Lunchtime!
+         </section>
+
+        <section class="slide">
+                <h2>Flexbox</h2>
+                <p>What if we want elements to be side by side?</p>
+                <p>In CSS there are various ways we can make things side by side: <em>Floats</em>, <em>Inline-Block</em>, <em>and Inline.</em></p>
+                <p>The most powerful layout property of all is <strong>Flexbox</strong></p>
+
+         </section>
+
+        <section class="slide">
+        <h2>Understanding Flexbox</h2>
+        <p>Below are three boxes with a parent div that has the class of "parent".</p>
+        <p>If we want the boxes to sit side by side, how wide will they need to be? (Hint: 100%/3)</p>
+        <p>Because of the box model, even boxes as narrow as 33% will stack vertically by default. This is because divs are <em>block elements</em>.</p>
+        <p>If we give the parent of the boxes below the display property of <em>flex</em>, and make sure that the boxes are just 33% wide, they will sit side by side neatly.</p>
+        <p>Let's try it in the CSS below to see if it works. Give the parent a display value of flex and the boxes a width of 33.3%. </p>
+                <div class="parent">
+                    <div class="box1"></div>
+                    <div class="box2"></div>
+                    <div class="box3"></div>
+                </div>
+        <textarea class="snippet" data-raw>
+            .parent {
+
+            }
+            .box1 {
+                height:100px;
+                background: red;
+             }
+            .box2 {
+                height:100px;
+                background: blue;
+
+            }
+            .box3 {
+                height:100px;
+                background: yellow;
+
+            }
+        </textarea>
+        </section>
+
+        <section class="slide">
+                <h2>Class Exercise: Flexbox</h2>
+                <p>Let's make the list-items in the "Press"  section sit side by side using flexbox"</p>
+                <pre><code>
+                    .press {
+                        padding: 20px;
+                        text-align: center;
+                    }
+                    .press ul {
+                        padding: 0;
+                        list-style-type: none;
+                        display: flex;
+                        justify-content: center;
+                    }
+                    .press li {
+                        padding: 0 20px;
+                        width: 20%;
+                    }
+                </code></pre>
+                <p>Let's use flexbox to layout the section with class of "product"</p>
+                <p>Steps:</p>
+                <ul>
+                    <li>Take a look at the HTML and think about how we could lay out the content on the left and the image on the right.</li>
+                    <pre>
+                        <code>
+                            <section class="product">
+                                <div class="left">
+                                    <h2>Tote-ally You</h2>
+                                    <p>For making a difference at every occasion.</p>
+                                    <p class="price">$35</p>
+                                    <a class="button" href="mailto:info@ladieslearningcode.com">Order Now</a>
+                                </div>
+                                <div class="right">
+                                    <img src="images/totes.JPG" alt="product">
+                                </div>
+                            </section>
+                        </code>
+                    </pre>
+                    </li>
+                    <li>
+                        Use flexbox to put each half side by side.
+                        <pre><code>
+                            section.product {
+                                padding: 0;
+                                background: white;
+                                display: flex;
+                            }
+
+                            .right, .left {
+                                width: 50%;
+                            }
+
+                            .left {
+                                text-align: center;
+                            }
+
+                            .right img {
+                                margin: 0;
+                                width: 100%;
+                            }
+
+                        </code></pre>
+                    </li>
+                    <li>While we're here, let's make sure the typography on the left matches the final example.</li>
+                    <pre><code>
+                        p.price {
+                                font-size: 100px;
+                                color: #b109aa;
+                            }
+                    </code></pre>
+                </ul>
+        </section>
+
+        <section class="slide" data-markdown>
+                        ##Positioning in CSS
+
+                        Sometimes display flexbox just doesn't cut it.
+
+                        The `position` property can be used to place elements in specific spots on the page without affecting the elements around it.  There are three options: `relative`, `absolute` and `fixed`. Elements are all `static` by default.
+
+                        Today we'll be using a fixed position. To learn more about position, [go here](framework/extras-positioning.html).
+
+        </section>
+        <section class="slide">
+                        <h2>Position: fixed</h2>
+                        <p>When positioning an element as <code>fixed</code>, it will <em>always</em> be positioned to the viewport and will always stay fixed on the page, even on page scroll. Try adding a <code>top</code> value (or any other directional offset property: <code>right</code>, <code>bottom</code>, <code>left</code>).</p>
+                        <pre><code>&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+                        </code></pre>
+
+                        <textarea class="snippet" data-subject="#fixed">
+.box {
+    width: 100px;
+    height: 100px;
+    background: blue;
+    position: fixed;
+    top: ;
+}
+                        </textarea>
+
+                        <div id="fixed">
+                            <div class="box"></div>
+                        </div>
+        </section>
+
+        <section class="slide">
+                        <h2>Class Exercise</h2>
+                        <p>Let's make the nav fixed at the top of the page using 'position: fixed'</p>
+                        <pre><code>
+                        nav {
+                            position: fixed;
+                            top: 0;
+                            width: 100%;
+                        }
+                       </code></pre>
+        </section>
+
+        <section class="slide">
+                <h2>Excercise #3: 15 minutes</h2>
+              <ul>
+                    <li>
+                      <p>Use flexbox to layout the <code>nav</code> like the example. </p>
+                  </li>
+                  <li>
+                      <p>Use flexbox to layout the section with the class of <code>impact</code> so that each list item takes up a third of the section and sits beside the next.</p>
+                  </li>
+                  <li>
+                      <p>Style classes <code>purple-box</code> and <code>white-box</code></p>
+                  </li>
+              </ul>
+        </section>
+
+        <section class="slide">
+                <h2>Exercise #3: Cont'd</h2>
+                <p><code>nav</code> layout </p>
+                <pre><code>
+nav {
+	padding: 10px 50px;
+	font-size: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 3;
+	background: white;
+	display: flex;
+	justify-content: center;
+}
+
+nav h1 {
+	font-family: 'Quicksand', Helvetica, Arial, sans-serif;
+	font-size: 50px;
+	line-height: 60px;
+	font-weight: 300;
+	width: 50%;
+	margin: 0;
+	color: black;
+}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	text-align: right;
+	width: 50%;
+}
+
+nav ul li a{
+	display: inline-block;
+	font-size: 24px;
+	padding: 10px;
+}
+.purple-box, .white-box{
+    display: block;
+    padding: 2px;
+    margin: 0 auto;
+    margin-top: 60px;
+    padding: 40px;
+    width:50%;
+}
+                </code></pre>
+        </section>
+
+        <section class="slide">
+                <h2>Exercise #3 Cont'd</h2>
+                <p><code>Impact</code> Section</p>
+                <pre><code>
+.impact ul {
+    padding: 0;
+    text-align: center;
+}
+
+.impact li {
+    display: inline-block;
+    width: 33%;
+    padding: 0 20px;
+    vertical-align: middle;
+}
+
+.impact li h3 {
+    font-size: 20px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 300;
+    margin-top: 20px;
+    padding: 30px;
+}
+                </code></pre>
+        </section>
+
+        <section class="slide">
+                    <h2>Let's review colours!</h2>
+                    <ul>
+                        <li class="colourName">By Name</li>
+                        <li class="colourHEX">By HEX Code</li>
+                        <li class="colourRGB">By RGB values</li>
+                        <li class="colourRGBA">By RGBA values</li>
+                    </ul>
+                    <textarea class="snippet delayed" data-raw>
+.colourName {
+    background: purple;
+}
+.colourHEX {
+    background: #FFFFFF;
+}
+.colourRGB {
+    background: rgb(0,255,0);
+}
+.colourRGBA {
+    background: rgba(0,0,255,1);
+}
+                    </textarea>
+
+        </section>
+
+        <section class="slide" data-markdown>
+                    ##Colour Resources
+
+
+                    [http://www.colorpicker.com/](http://www.colorpicker.com/)
+
+                    [http://colours.neilorangepeel.com/](http://colours.neilorangepeel.com/)
+
+                    [http://www.colourlovers.com/](http://www.colourlovers.com/)
+
+                    [http://flatuicolors.com/](http://flatuicolors.com/)
+
+                    [http://color.hailpixel.com/](http://color.hailpixel.com/)
+
+                    [http://wesandersonpalettes.tumblr.com/](http://wesandersonpalettes.tumblr.com/)
+        </section>
+
+        <section class="slide">
+                    <h2>Adding Background Colours</h2>
+                    <p>Using the <code>background</code> property to add colours to various page sections can be very useful when laying out the CSS for your HTML document. We will be going more in depth with the various background options  but for now, try changing the colours below and see what happens!</p>
+
+                    <textarea class="snippet" data-subject="#bg-shorthand">background: lightblue;</textarea>
+                    <div id="bg-shorthand">
+                        <p>Change my background colour!</p>
+                    </div>
+        </section>
+
+        <section class="slide" data-markdown>
+                    ##Exercise #4: add background colours (10mins)
+                    Select the elements that have a coloured background in the final example and match them in your file.
+                    Hint: If a background is transparent, use RGBA.
+        </section>
+
+        <section class="slide">
+                <h2>Exercise #4: Background colours</h2>
+                <pre><code>
+.purple {
+    background: #b109aa;
+    color:white;
+    }
+.purple-box {
+    background: rgba(177,9,170,0.6);
+    }
+
+                </code></pre>
+        </section>
+
+        <section class="slide">
+                    <h2>Default styles: Normalize</h2>
+                    <p>You may notice that the colours don't span all the way to the edge of the page. That's because browsers have their own <em>user agent</em> style sheet to add default styles to the html elements.</p>
+                    <p>We have a snippet of code in our CSS at the top that fixes this.</p>
+                    <p>Let's uncomment it together.</p>
+        </section>
+
+        <section class="slide">
+                    <h2>Class Excercise: Parent-child selectors</h2>
+                    <p>How do we change our text to be white in our "impact" section? And what of all others?</p>
+                    <p>Let's find a way to target all paragraphs and headings that are inside a parent with a purple background and make them white. </p>
+                    <pre><code>
+
+.purple h2, .purple p, .purple h3 {
+    color: white;
+}
+                    </code></pre>
+        </section>
+
+        <section class="slide title" data-markdown>
+            #Background images
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Class Exercise: Background images
+
+            So far we've used `background` for colours but it can also be used for setting background images.
+
+            ```
+            background-image: url(path/to/file.jpg); /* longhand */
+            background: url(path/to/file.jpg);/* shorthand */
+            ```
+            Since our CSS file in *inside* a folder, use `../` to go *up and out* of the folder to get to the image files.
+
+            Let's add a background image to the `header` of your page. There are a few images in your **project > images** folder to choose from or your own.
+
+            ```
+            header {
+                background: url(images/glccamp.jpg);
+            }
+            ```
+
+            Does the image repeat? Let's fix that.
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Class Exercise: Background Images (continued)
+
+            To keep the image from repeating, use `background-repeat` or just add it to the shorthand `background` property.
+
+            ```
+            /* shorthand */
+            background: url(../images/background-1.jpg) no-repeat;
+
+            /* longhand */
+            background-image: url(../images/background-1.jpg);
+            background-repeat: no-repeat;
+            ```
+
+            Now the image doesn't stretch all the way across the page but before we update that, let's try adding one more style. Add "fixed" to your shorthand markup. Check your page and scroll. What happens to the image?
+
+            ```
+            /* shorthand */
+            background: url(../images/glccamp.jpg) no-repeat fixed;
+
+            /* longhand */
+            background-image: url(../images/glccamp.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            ```
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Background-size
+
+            CSS3 introduced the `background-size` property which not only allows us to change the size of the image but also makes the background images fluid and flexible . The syntax is:
+
+            ```
+            background-size: width height;
+            ```
+
+            The default values for width and height are `auto` and retains the original image dimensions. If only one value is defined, it is assumed to be the `width`. The height will be set to `auto` and the image will keep its aspect ratio.
+
+            There are several ways to define sizing dimensions using px, percentages, keywords, etc.
+
+            `background-size` is the longhand property.  To include it in the shorthand `background` property, it *must* be included after `background-position`, separated with the `/` character.
+
+            ```
+            header {
+                background-image: url(../images/glccamp.jpg);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: 50%;
+                background-size: 100%;
+            }
+            ```
+            ```
+            header {
+                background: url(../images/glccamp.jpg) no-repeat fixed 50% / 100%;
+            }
+            ```
+            If no background position value is being used, background-size won't work in the shorthand property so in this case, it may be less error prone to add it via the longhand property.
+
+            ```
+            header {
+                background: url(../images/glccamp.jpg) no-repeat fixed 50%;
+                background-size: 100%;
+            }
+            ```
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Class Exercise: Background-size
+
+            This looks great... until you minimize the screen. This is where using the keyword, `cover` will work better.
+
+            `cover` scales the image to fit the entire container but, if that has a different aspect ratio, the image will be cropped.
+
+            Let's update the background-size to `cover`. Your code should now look something like this:
+            ```
+            header{
+                padding: 100px 0;
+                text-align: center;
+                background: url(../images/glccamp.jpg) no-repeat fixed 50%;
+                background-size: cover;
+                height: 600px;
+                width: 100%;
+                color: white;
+            }
+            ```
+            **Extra resource**: https://developer.mozilla.org/en/docs/Web/CSS/background
+        </section>
+
+        <section class="slide">
+            <h2>Photography Resources!</h2>
+
+            <p>Need some time to check your work? </p>
+
+            <p>Also, prepare for later by picking two images to use as the background images for your page. Here’s the link to the <a href="project/final.html">final project for reference</a>.</p>
+            <p>Resources for free images:</p>
+            <ul>
+                <li><a href="http://superfamous.com/">http://superfamous.com/</a></li>
+                <li><a href="http://www.gratisography.com/">http://www.gratisography.com/</a></li>
+                <li><a href="http://littlevisuals.co/">http://littlevisuals.co/</a>  </li>
+                <li><a href="http://nos.twnsnd.co/">http://nos.twnsnd.co/</a></li>
+                <li><a href="http://unsplash.com/">http://unsplash.com/</a> </li>
+            </ul>
+        </section>
+
+        <section class="slide">
+                    <h2>Gradients</h2>
+
+                    <p><code>background</code> can also be used to create a gradient. Using CSS gradients instead of an image file, is better for flexibility and performance. Gradients are usually one color that fades into another. With CSS you can control the direction of the fade, the colors, as well as where the color changes happen.</p>
+
+                    <p>Gradients are set using the <code>background-image</code> property. The shorthand <code>background</code> property will also work.</p>
+
+                    <pre><code>background-image: linear-gradient(to right, red, blue);</code></pre>
+
+                    <p>In the example below, try putting a start and stop colour. Then try changing the direction.</p>
+
+                    <textarea class="snippet">background: linear-gradient();</textarea>
+
+                    <p>Learn all about gradients here: <a href="http://css-tricks.com/css3-gradients/">http://css-tricks.com/css3-gradients/</a></p>
+        </section>
+
+        <section class="slide">
+                    <h2>Gradients and Background Images</h2>
+
+                    <p>In our <strong>last-bid</strong> section, the text is hard to read on top of the background image. We can use gradients and set multiple background images to make it easier to read. </p>
+
+                    <p>Declare the gradient first so it can sit on top of the image. We also want to see the image through the gradient so use RGBA color values to set the alpha transparency. Play around with the code below.</p>
+
+                    <textarea class="snippet" data-subject="#bg-image-gradient">
+height: 300px;
+background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(project/images/goofy-girls.jpg);
+                    </textarea>
+                    <div id="bg-image-gradient"></div>
+        </section>
+
+        <section class="slide" data-markdown>
+        ##Exercise #5: Gradients and Background Images (10 mins)
+
+        1. Customize the background images in the `last-bid` section.
+        2. Using the previous example, add a gradient effect to the `last-bid` section to make the text on background image more legible.
+        2. Change the colour of the text in the section. Hint: remember how we changed all other text on purple backgrounds?
+
+        </section>
+
+        <section class="slide">
+                <h2>Exercise #5: Gradients and Background Images</h2>
+                <pre><code>
+.last-bid {
+    background: linear-gradient(rgba(177, 9, 170, 0.8),rgba(177, 9, 170, 0.8)), url(images/goofy-girls.jpg);
+    background-position: 50%;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+    padding: 20%;
+    position: relative;
+    color: black;
+}
+                </code></pre>
+        </section>
+
+        <section class="slide">
+                <h3>Borders</h3>
+                <p class="delayed">Remember to set width in pixel, color, and type.</p>
+                <textarea class="snippet delayed" data-raw>
+        border-width:10px;
+        border-color:purple;
+        border-style:solid;
+        <!--dotted, dashed, solid, double, groove, ridge, inset, outset-->
+                </textarea>
+        </section>
+
+        <section class="slide">
+                    <h3>Border-radius</h3>
+                    <p class="delayed">Border-radius allows you to create rounded corners with CSS!</p>
+                    <p class="delayed">We can even make a circle from a square image</p>
+                    <div class="circle"></div>
+                    <textarea class="snippet delayed" data-raw>
+            .circle {
+                width:100px;
+                height:100px;
+                background-color:purple;
+                border-radius:0 0 0 0;
+            }
+                    </textarea>
+         </section>
+
+        <section class="slide">
+                <h2>Exercise #6: 5 minutes</h2>
+                <p>Find all the links with the class of "button" and use border and border-radius to make them look like the example</p>
+        </section>
+
+        <section class="slide">
+                <h2>Exercise #6: Borders and border-radius</h2>
+                <pre><code>
+a.button {
+    color: white;
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 3px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.product .button{
+    border: 1px solid black;
+    color: black;
+
+}
+                </code></pre>
+        </section>
+
+        <section class="slide" data-markdown>
+            ##:hover Pseudo Selector
+
+            Let's try adding some changes on hover using the `:hover` [psuedo-class selector](http://marksheet.io/css-pseudo-classes.html).
+
+            Psuedo selectors need to be attached to an element with a colon (`:`) with *no* space. A common use for this selector is for links. It will apply color to the element when hovered over. Let's add a colour change on hover.
+
+            ```
+            a:hover {
+                color: #ffffff;
+            }
+            ```
+        </section>
+
+        <section class="slide">
+            <h2>CSS Transition</h2>
+
+            <p>The transition property can be used to change values over a specified duration making the transition appear less abrupt. Hover over this paragraph to see the transition.  Experiment and change some of the values below.</p>
+
+<pre><code>transition: [transition-property] [transition-duration] [transition-timing-function] [transition-delay];</code></pre>
+
+            <textarea class="snippet">p {
+    transition: all 1s ease;
+    color: black;
+}
+p:hover {
+    background-color: #cccccc;
+    color: white;
+}</textarea>
+            <p>More about transition: <a href="http://css-tricks.com/almanac/properties/t/transition/">http://css-tricks.com/almanac/properties/t/transition</a></p>
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Class exercise #7: hover & transition
+
+            Add the transition property to the hover effects then try hovering over your links.
+
+
+```css
+            a:hover {
+                color: #4d4d4d;
+            }
+            a.button:hover{
+                background: white;
+                color: black;
+            }
+```
+        </section>
+
+        <section class="slide centered" data-markdown>
+            ##GIF Break
+            ![](framework/img/workshop/elsafeelgood.gif)
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Exercise #8: Styling the Footer Section (5mins)
+
+            1. Refer to your HTML code to identify the footer section
+            2. Go to your <code>style.css</code> file and uncomment the whole section
+            3. Review the changes on the page in the browser, customize the color of the button on hover and the transition time.
+        </section>
+
+        <section class="slide">
+            <h2>Animations with animate.css</h2>
+            <p>Writing animations is super fun and you should try spending some time practicing combining transitions and animations</p>
+            <p>For today, we're going to look at an animation library that has already done that work for us.</p>
+            <p>Let's visit <a href="http://daneden.github.io/animate.css/">Animate.css</a></p>
+            <p>Uncomment the <pre><code><link rel="stylesheet" href="animate.css"></code></pre> at the top of your HTML code</p>
+            <p>You can add an animation to any part of your page by adding the classes "animated" and the name of the animation you want. For example "bounce". These animations run automatically as soon as the page loads. They're great for logos.</p>
+            <p>Let's try adding one to our own logo.</p>
+
+        </section>
+
+        <section class="slide">
+            <h2>CSS Animations</h2>
+
+            <p class="animated">{ front-end Totes }<p>
+
+            <textarea class="snippet">
+
+            @-webkit-keyframes rainbow{
+                0% {
+                    color: yellow
+                }
+                25% {
+                    color: orange;
+                }
+                50% {
+                    color: green;
+                }
+                75% {
+                    color: blue;
+                }
+                100% {
+                    color: purple;
+                }
+
+            }
+                .animated {
+                    font-size: 50px;
+                    -webkit-animation-name: rainbow ;
+                    -webkit-animation-duration: 4s;
+                    -webkit-animation-timing-function: linear;
+                    -webkit-animation-iteration-count: 1;
+                }
+            </textarea>
+        </section>
+
+        <section class="slide">
+            <h2>Excercise: 5 minutes</h2>
+            <p>Play around with the animations in Animate CSS and find one you love for the h1 in our HTML. </p>
+            <p>Add the animations to the h1 by adding the classes "animated" and the name of the animation you like. For example: </p>
+            <pre><code><h1 class="animated bounce">{ front-end Totes }</h1></code></pre>
+            <p>Play around with "animated flash", "animated pulse", etc</p>
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Working with SVG
+            Have you noticed that when you hover over the icons in the final example, the keyboard keys change colour?
+
+            That's because it's a Scalable Vector Graphic. Vector graphics can be used in the same way as images. But, look at what happens when you open an svg in Atom.
+
+            It's code!!! Funny looking code, but just as simple as your HTML.
+
+            The great thing about SVG is that we can target different sections of a graphic like we did with the keyboard.
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Class Excercise - Working with SVGs - keyboard
+
+            - Open keyboard.svg in Atom and copy the code
+            - Past the code inside of the figure element replacing the img tag with the keyboard.svg file.
+            - Inspect the SVG in the browser to figure out which parts of the SVG are the keys.
+            - Select the keys and add a hover effect to make them change colour. (clue: in SVG we use the fill property to change the colour of the graphic).
+            - Change the fill of the SVGs to be white like in the example.
+        </section>
+
+        <section class="slide">
+                <h2>Working with SVGs - keyboard</h2>
+                <pre><code>
+.impact svg {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    fill: rgba(255,255,255,0.9);
+    vertical-align: bottom;
+}
+
+svg.keyboard path:hover {
+    fill: purple;
+}
+                </code></pre>
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Class Excercise - Working with SVGs - button and joy figure
+            - To finish off, take 2 minutes to copy and paste the other two SVGs (button and joy) in the place of the file names.
+
+            <p>For cool SVGs like the ones we used today, visit [Noun Project](http://nounproject.com)</a></p>
+
+        </section>
+
+        <section class="slide">
+            <h2>Class Excercise - Working with SVGs - button</h2>
+            <p>To achieve the hover effect on the SVGs we combined hover states with the animate.css library</p>
+            <p>Since that process is a little lengthy for today, copy this code to see them run:</p>
+                    <pre><code>
+svg.button:hover {
+    -webkit-animation-name:tada;
+    animation-name: tada ;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+                </code></pre>
+        </section>
+
+        <section class="slide">
+            <h2>Class Excercise - Working with SVGs - Joy</h2>
+                    <pre><code>
+svg.joy:hover {
+    -webkit-animation-name:bounce;
+    animation-name: bounce;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+                </code></pre>
+        </section>
+
+        <section class="slide centered" data-markdown>
+            ##How I feel about SVG.
+            ![](framework/img/workshop/babyunicorn.gif)
+        </section>
+
+        <section class="slide">
+                        <h2>-webkit-filters</h2>
+                        <p>Notice how the images in our <strong>press</strong> section are gray? How did we do that? </p>
+                        <p>It's called <strong>-webkit-filter</strong> and it's a CSS3 property that enables us to change the way images look.</p>
+                        <img src="framework/img/workshop/bloat.jpg" alt="bloat">
+                        <textarea class="snippet">
+                            img {
+                                -webkit-filter: ;
+                            <!-- blur(px), brightness(%),contrast(%), grayscale(%), hue-rotate(deg), invert(%), opacity(%), sepia-->
+                            }
+
+                        </textarea>
+                        To make our logos grayscale in the <strong>press</strong> section write this:
+
+                        <pre><code>
+                            .press img {
+                                -webkit-filter: grayscale(100%);
+                                filter: grayscale(100%);
+                            }
+                        </code></pre>
+        </section>
+
+        <section class="slide">
+            <h2>Class Exercise: Embedding YouTube and Vimeo Videos</h2>
+            <p>You will have noticed that there's an element called an "iframe" in the HTML document. That element comes directly from Vimeo.</p>
+            <p>Let's navigate to Vimeo and swap out that video for something else...</p>
+            <p>Try to keep the width at 800 and height at 450.</p>
+            <a href="http://player.vimeo.com/video/116499962">Click Here</a>
+
+            <p>The process is similar in YouTube.</p>
+        </section>
+
+
+
+        <section class="slide centered" data-markdown>
+                ##We did it!
+                 ![](framework/img/workshop/elsa.gif)
+        </section>
+
+        <!-- Last slide -->
+        <section class="slide last">
+            <h2>Thank you!</h2>
+
+            <h2 class="title">
+                <span class="title-bg">Pure CSS</span><br>
+                <span class="title-bg">Teen:Clubs</span>
+            </h2>
+            <h3><span>with</span> Ksenia<span></h3>
+
+            <!-- <div class="instructor">
+                <img class="instructor-img" src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAaGAAAAJDlmN2M5ODQwLWI2NzQtNGIxNy1hNGVjLTEyYmRmNDBhNjBmZA.jpg?size=200" alt="Ksenia Nadkina">
+                <ul>
+                    <li><i class="fa fa-envelope"></i><a href="mailto:ksenia@ladieslearningcode.com">ksenia@ladieslearningcode.com</li>
+                    <li><i class="fa fa-desktop"></i><a href="http://playwithcode.org">playwithcode.org</a></li>
+                    <li><i class="fa fa-twitter"></i><a href="http://twitter.com/ksenia_nadkina">@ksenia_nadkina</a></li>
+                </ul>
+            </div> -->
+
+            <p class="attribution">Slidedecks created by Jessica Duarte and Christina Truong with <a href="https://github.com/LeaVerou/csss">Lea Verou's CSS-based SlideShow System</a> and <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>.</p>
+        </section>
+    </main>
+
+
+    <footer>
+        <p class="license"><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="framework/img/cc-by-nc.svg" /></a> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
+        <p class="instructions">Use the left <i class="fa fa-arrow-left"></i> and right <i class="fa fa-arrow-right"></i> arrow keys to navigate</p>
+    </footer>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <script src="framework/scripts/slideshow.js"></script>
+
+    <!-- Uncomment the plugins you need -->
+    <script src="framework/scripts/plugins/css-edit.js"></script>
+    <script src="framework/scripts/plugins/css-snippets.js"></script>
+    <script src="framework/scripts/plugins/css-controls.js"></script>
+    <!-- <script src="plugins/code-highlight.js"></script>-->
+
+    <script src="framework/scripts/plugins/markdown/marked.js"></script>
+    <script src="framework/scripts/plugins/markdown/markdown.js"></script>
+    <script src="framework/scripts/plugins/highlight/highlight.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- Prettify -->
+    <script src="framework/scripts/plugins/prettify.js"></script>
+    <script src="framework/scripts/plugins/lang-css.js"></script>
+    <script src="framework/scripts/plugins/prism.js"></script>
+
+    <script>
+        var slideshow = new SlideShow();
+
+        // Grabs all the .snippet elements
+        var snippets = document.querySelectorAll('.snippet');
+        for(var i=0; i<snippets.length; i++) {
+            new CSSSnippet(snippets[i]);
+        }
+
+        // Opens all links in a new window
+        var links = document.getElementsByTagName("a");
+        for (var i = 0; i < links.length; i++) {
+            var link = links[i];
+            link.addEventListener(function() {
+                window.open(this.href);
+            });
+        }
+
+        jQuery(document).ready(function(){
+            jQuery(".snippet").before("<span class=\"edit\">edit me</span>");
+        });
+    </script>
+</body>
+</html>
